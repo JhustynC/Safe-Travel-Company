@@ -1,0 +1,34 @@
+<header class="site-header" [class.scrolled]="scrolled()">
+  <div class="header-inner container">
+    <a class="wordmark" routerLink="/">
+      <span class="wordmark__seal" aria-hidden="true">ST</span>
+      <span>SAFE TRAVEL <span class="wordmark__small">COMPANY</span></span>
+    </a>
+    <button
+      id="menu-toggle"
+      class="menu-toggle"
+      type="button"
+      [attr.aria-expanded]="menuOpen()"
+      aria-controls="primary-navigation"
+      (click)="toggle()"
+    >
+      <span>{{ menuOpen() ? 'Close' : 'Menu' }}</span
+      ><span class="hamburger" [class.open]="menuOpen()" aria-hidden="true"></span>
+    </button>
+    <nav id="primary-navigation" aria-label="Main navigation" [class.is-open]="menuOpen()">
+      @for (item of items; track item.route) {
+        <a
+          [routerLink]="item.route"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          ariaCurrentWhenActive="page"
+          (click)="close()"
+          >{{ item.label }}</a
+        >
+      }
+    </nav>
+    <a class="button header-cta" routerLink="/contact"
+      >Contact Us <span aria-hidden="true">↗</span></a
+    >
+  </div>
+</header>
