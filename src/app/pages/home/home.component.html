@@ -1,0 +1,82 @@
+<section class="hero">
+  <div class="container hero__grid">
+    <div class="hero__copy">
+      <span class="eyebrow">ART · BELIEFS · THE JOURNEY</span>
+      <h1>Safe Travel<br /><em>Company</em><span class="hero__period">.</span></h1>
+      <span class="hero__rule" aria-hidden="true"></span>
+      <p>{{ site.tagline }}</p>
+      <app-primary-button route="/about">Explore Our Story</app-primary-button>
+      <div class="hero__footnote">
+        <span aria-hidden="true">✳</span> Objects with a story. Made by hand.
+      </div>
+    </div>
+    <div class="hero__art">
+      <span class="hero__circle" aria-hidden="true"></span>
+      <span class="hero__orbit" aria-hidden="true"></span>
+      <img
+        class="hero__feathers"
+        src="/assets/images/home/prayer-feathers.webp"
+        srcset="
+          /assets/images/home/prayer-feathers-small.webp 480w,
+          /assets/images/home/prayer-feathers.webp       700w
+        "
+        sizes="(max-width: 767px) 88vw, 46vw"
+        alt="Three hand-carved prayer feathers in black, white and natural wood, suspended from cords"
+        width="906"
+        height="1024"
+        fetchpriority="high"
+        decoding="async"
+      />
+      <span class="hero__image-label"
+        >PRAYER FEATHERS<br /><span>A connection. A messenger.</span></span
+      >
+      <span class="hero__vertical" aria-hidden="true">CREATE YOUR TRAVEL WORLD</span>
+    </div>
+  </div>
+  <div class="hero__bottom container">
+    <span>INSPIRED BY CULTURES. CARRIED WITH MEANING.</span
+    ><a href="#our-world">Discover our world <span aria-hidden="true">↓</span></a>
+  </div>
+</section>
+<section class="introduction container section">
+  <div>
+    <span class="eyebrow">A NOTE FROM MARGARET</span>
+    <h2>Create Your<br /><em>Travel World</em></h2>
+  </div>
+  <div>
+    <p class="introduction__quote">“{{ site.introduction }}”</p>
+    <span class="introduction__signature">Margaret <span>— Creator & traveler</span></span>
+  </div>
+</section>
+<section id="our-world" class="world section">
+  <div class="container">
+    <app-section-heading
+      eyebrow="MEANING IN EVERY PIECE"
+      title="Discover Our World"
+      [centered]="true"
+    />
+    <div class="categories">
+      @for (category of categories; track category.route) {
+        <app-category-card [category]="category" />
+      }
+    </div>
+  </div>
+</section>
+<app-quote-block quote="Travel lighter, travel deeper." />
+<app-image-content-section
+  image="/assets/images/about/founder.webp"
+  alt="Margaret, the creator of Safe Travel Company"
+  caption="Margaret · The person behind Safe Travel Company"
+  eyebrow="THE PERSON BEHIND THE PIECES"
+  title="A Journey of Beliefs and Cultures"
+>
+  <p class="about-copy">{{ site.aboutPreview }}</p>
+  <app-primary-button route="/about" [outline]="true">Read My Story</app-primary-button>
+</app-image-content-section>
+<section class="contact-cta">
+  <div class="container">
+    <span class="eyebrow">YOUR JOURNEY, YOUR STORY</span>
+    <h2>Have something<br /><em>meaningful</em> in mind?</h2>
+    <app-primary-button route="/contact">Get in Touch</app-primary-button>
+  </div>
+</section>

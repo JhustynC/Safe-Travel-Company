@@ -1,0 +1,225 @@
+.hero {
+  background: #efeae1;
+  overflow: hidden;
+}
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 660px;
+  align-items: center;
+}
+.hero__copy {
+  padding: 4.5rem 0 3rem;
+  position: relative;
+  z-index: 2;
+}
+h1 {
+  margin: 1.3rem 0 1.5rem;
+  line-height: 0.92;
+}
+h1 em {
+  font-weight: 400;
+}
+.hero__period {
+  color: var(--color-primary);
+}
+.hero__rule {
+  display: block;
+  width: 42px;
+  height: 2px;
+  background: var(--color-primary);
+  margin-bottom: 1.6rem;
+}
+.hero__copy > p {
+  max-width: 30ch;
+  font-size: 1rem;
+  color: #5c574e;
+  margin-bottom: 2rem;
+}
+.hero__footnote {
+  margin-top: 2.5rem;
+  font-size: 0.65rem;
+  color: #6b6258;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+.hero__footnote span {
+  color: var(--color-earth);
+  font-size: 1.6rem;
+}
+.hero__art {
+  position: relative;
+  min-width: 0;
+  height: 620px;
+}
+.hero__circle {
+  position: absolute;
+  width: 94%;
+  height: 83%;
+  border-radius: 50% 50% 43% 48%;
+  background: radial-gradient(ellipse at 35% 30%, #e4d6c0, #c7b294);
+  top: 9%;
+  left: 5%;
+  opacity: 0.7;
+}
+.hero__orbit {
+  position: absolute;
+  border: 1px solid #b8a68c;
+  border-radius: 50%;
+  height: 90%;
+  width: 91%;
+  top: 4%;
+  left: 5%;
+  transform: rotate(15deg);
+  opacity: 0.5;
+}
+.hero__feathers {
+  position: relative;
+  width: 100%;
+  height: 92%;
+  object-fit: contain;
+  transform: rotate(-9deg);
+  z-index: 1;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(9px 12px 8px #74614925);
+}
+.hero__image-label {
+  position: absolute;
+  bottom: 1.3rem;
+  right: 1.5rem;
+  z-index: 2;
+  font-size: 0.63rem;
+  letter-spacing: 0.16em;
+  line-height: 1.7;
+}
+.hero__image-label span {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-style: italic;
+  letter-spacing: 0;
+}
+.hero__vertical {
+  position: absolute;
+  right: -1rem;
+  top: 18%;
+  writing-mode: vertical-rl;
+  font-size: 0.55rem;
+  letter-spacing: 0.22em;
+  color: #756b5d;
+}
+.hero__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #d4cabc;
+  padding-block: 1.2rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.13em;
+  gap: 1rem;
+}
+.hero__bottom a {
+  text-transform: none;
+  font-size: 0.73rem;
+  letter-spacing: 0;
+}
+.hero__bottom a span {
+  margin-left: 1.5rem;
+}
+.introduction {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 5rem;
+}
+.introduction h2 {
+  margin: 1rem 0 0;
+}
+.introduction__quote {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  line-height: 1.4;
+}
+.introduction__signature {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-style: italic;
+}
+.introduction__signature span {
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: 0.65rem;
+  color: var(--color-muted-text);
+  margin-left: 0.5rem;
+}
+.world {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+.categories {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+}
+.about-copy {
+  color: var(--color-muted-text);
+  max-width: 52ch;
+  margin-bottom: 2rem;
+}
+.contact-cta {
+  text-align: center;
+  background: #eee6db;
+  padding-block: 4.5rem 5rem;
+  border-top: 1px solid var(--color-border);
+}
+.contact-cta h2 {
+  margin: 1.2rem 0 2rem;
+}
+@media (max-width: 1023px) {
+  .hero__grid {
+    min-height: 590px;
+  }
+  .hero__art {
+    height: 540px;
+  }
+  .categories {
+    gap: 1.2rem;
+  }
+  .introduction {
+    gap: 2rem;
+  }
+}
+@media (max-width: 767px) {
+  .hero__grid {
+    grid-template-columns: 1fr;
+  }
+  .hero__copy {
+    padding-top: 3.5rem;
+    padding-bottom: 0;
+  }
+  .hero__copy > p {
+    max-width: 35ch;
+  }
+  .hero__footnote {
+    margin-top: 1.5rem;
+  }
+  .hero__art {
+    height: 460px;
+    margin-top: 0.7rem;
+  }
+  .hero__feathers {
+    height: 94%;
+  }
+  .hero__bottom > span {
+    display: none;
+  }
+  .hero__bottom {
+    justify-content: center;
+  }
+  .introduction {
+    grid-template-columns: 1fr;
+  }
+  .categories {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
