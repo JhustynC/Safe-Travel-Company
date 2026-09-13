@@ -91,15 +91,72 @@ El archivo `404.html` evita el fallback automático a Home para URLs desconocida
 
 ## Cloudflare Pages
 
-Preparar la publicación después de aprobar Home, completar las páginas interiores y configurar el contacto.
+La aplicación se publica como archivos estáticos en Cloudflare Pages. El build de Angular genera la salida en `dist/safe-travel-company/browser`; no se necesita un servidor Node en producción.
 
-1. Crear un repositorio en GitHub y subir el proyecto, incluyendo `package-lock.json`, sin `node_modules`, `dist`, `.env` ni credenciales. Esta carpeta todavía no tiene repositorio Git inicializado.
-2. En Cloudflare, abrir **Workers & Pages**, crear un proyecto **Pages** y conectar el repositorio de GitHub.
-3. Seleccionar la rama de producción. Build command: **`npm run build`**. Build output directory: **`dist/safe-travel-company/browser`**. Root directory: la raíz del proyecto. Si el preset Angular propone otra carpeta, reemplazarla por esta salida.
-4. Configurar `NODE_VERSION=22.22.3` en el entorno de build (también se incluye `.node-version`). Comprobar que la instalación y prerender terminan correctamente.
-5. Revisar el dominio `pages.dev`: cargar cada ruta directamente, refrescarla y probar una URL inexistente. Las previews incompletas no deben indexarse; conservar la protección de indexación que Cloudflare aplica a previews y no apuntar aún el dominio público.
-6. En **Custom domains**, agregar el dominio aprobado. Seguir las instrucciones DNS de Cloudflare: para un dominio raíz normalmente se administra la zona en Cloudflare; para un subdominio se puede configurar el CNAME correspondiente. No cambiar DNS de correo ajeno al sitio.
-7. Esperar la activación del dominio y certificado. Verificar HTTPS, redirección de HTTP, canonical, sitemap, imágenes y formulario desde el dominio definitivo. Comprobar también variantes `www` si se usan.
+### Valores de Cloudflare
+
+Al crear el proyecto desde **Workers & Pages**, elegir **Pages** y usar:
+
+- **Project name:** `safe-travel-company`
+- **Production branch:** `main`
+- **Build command:** `npm run build`
+- **Build output directory:** `dist/safe-travel-company/browser`
+- **Root directory:** `/`
+- **Node version:** `22.22.3`
+
+El repositorio debe incluir `package-lock.json`. No subir `node_modules`, `dist`, archivos `.env` ni credenciales. El archivo `.node-version` ya fija la versión recomendada de Node.
+
+### Primer despliegue desde la terminal
+
+Desde la raíz del proyecto, instalar dependencias, autenticar Wrangler y crear el proyecto Pages una sola vez:
+
+```sh
+npm install
+npx wrangler login
+npx wrangler pages project create safe-travel-company
+```
+
+Cuando Wrangler pregunte por la rama de producción, escribir:
+
+```text
+main
+```
+
+Después, generar la aplicación y publicarla:
+
+```sh
+npm run build
+npx wrangler pages deploy dist/safe-travel-company/browser --project-name safe-travel-company --branch main
+```
+
+Wrangler mostrará una URL de deployment, por ejemplo `https://<deployment-id>.safe-travel-company.pages.dev`. La URL principal del proyecto será `https://safe-travel-company.pages.dev`.
+
+### Despliegue automático desde Cloudflare
+
+Si Cloudflare ejecuta el build y el despliegue mediante los campos de configuración, usar:
+
+- **Build command:** `npm run build`
+- **Deploy command:** `npx wrangler pages deploy dist/safe-travel-company/browser --project-name safe-travel-company --branch "$CF_PAGES_BRANCH"`
+- **Non-production branch deploy command:** `npx wrangler pages deploy dist/safe-travel-company/browser --project-name safe-travel-company --branch "$CF_PAGES_BRANCH"`
+- **Path:** `/`
+
+El comando de despliegue requiere que el proyecto `safe-travel-company` ya exista y que el token seleccionado tenga permiso **Account > Cloudflare Pages > Edit**. Si no existe, créalo desde la terminal con `npx wrangler pages project create safe-travel-company` o desde el panel de Cloudflare.
+
+### Verificación después del despliegue
+
+Comprobar la página principal y las rutas directamente:
+
+```text
+https://safe-travel-company.pages.dev/
+https://safe-travel-company.pages.dev/about
+https://safe-travel-company.pages.dev/pouches
+https://safe-travel-company.pages.dev/carvings
+https://safe-travel-company.pages.dev/vests
+https://safe-travel-company.pages.dev/contact
+https://safe-travel-company.pages.dev/ruta-inexistente
+```
+
+La última URL debe mostrar la página 404. También comprobar imágenes, fuentes, navegación móvil, sitemap, canonical y el formulario de contacto. En **Custom domains**, agregar el dominio aprobado y seguir las instrucciones DNS de Cloudflare; no cambiar registros DNS del correo.
 
 Documentación oficial: [Angular static rendering](https://angular.dev/guide/ssr), [Cloudflare build configuration](https://developers.cloudflare.com/pages/configuration/build-configuration/), [404 y rutas estáticas](https://developers.cloudflare.com/pages/configuration/serving-pages/), [dominios personalizados](https://developers.cloudflare.com/pages/configuration/custom-domains/).
 
