@@ -67,7 +67,9 @@ import { LanguageService } from '../../services/language.service';
     }
     .footer-logo img {
       width: 92px;
+      height: 92px;
       max-width: none;
+      object-fit: cover;
     }
     p {
       max-width: 38ch;
