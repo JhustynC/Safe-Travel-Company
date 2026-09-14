@@ -1,9 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://safetravelcompany.com/</loc></url>
-  <url><loc>https://safetravelcompany.com/about</loc></url>
-  <url><loc>https://safetravelcompany.com/pouches</loc></url>
-  <url><loc>https://safetravelcompany.com/carvings</loc></url>
-  <url><loc>https://safetravelcompany.com/vests</loc></url>
-  <url><loc>https://safetravelcompany.com/contact</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://safetravelcompany.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safetravelcompany.com/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://safetravelcompany.com/es" />
+  </url>
+  <url>
+    <loc>https://safetravelcompany.com/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safetravelcompany.com/about" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://safetravelcompany.com/es/about" />
+  </url>
+  <url>
+    <loc>https://safetravelcompany.com/pouches</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safetravelcompany.com/pouches" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://safetravelcompany.com/es/pouches" />
+  </url>
+  <url>
+    <loc>https://safetravelcompany.com/carvings</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safetravelcompany.com/carvings" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://safetravelcompany.com/es/carvings" />
+  </url>
+  <url>
+    <loc>https://safetravelcompany.com/vests</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safetravelcompany.com/vests" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://safetravelcompany.com/es/vests" />
+  </url>
+  <url>
+    <loc>https://safetravelcompany.com/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safetravelcompany.com/contact" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://safetravelcompany.com/es/contact" />
+  </url>
+  <url>
+    <loc>https://safetravelcompany.com/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safetravelcompany.com/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://safetravelcompany.com/es" />
+  </url>
+  <url>
+    <loc>https://safetravelcompany.com/es/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safetravelcompany.com/about" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://safetravelcompany.com/es/about" />
+  </url>
+  <url>
+    <loc>https://safetravelcompany.com/es/pouches</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safetravelcompany.com/pouches" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://safetravelcompany.com/es/pouches" />
+  </url>
+  <url>
+    <loc>https://safetravelcompany.com/es/carvings</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safetravelcompany.com/carvings" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://safetravelcompany.com/es/carvings" />
+  </url>
+  <url>
+    <loc>https://safetravelcompany.com/es/vests</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safetravelcompany.com/vests" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://safetravelcompany.com/es/vests" />
+  </url>
+  <url>
+    <loc>https://safetravelcompany.com/es/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safetravelcompany.com/contact" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://safetravelcompany.com/es/contact" />
+  </url>
 </urlset>

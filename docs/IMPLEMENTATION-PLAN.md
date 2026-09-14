@@ -1,27 +1,25 @@
-# Delivery phases
+# Estado de entrega
 
-This repository follows the supplied instruction to review the Home before completing the other pages.
+## Completado
 
-## Initial milestone
+- [x] Arquitectura Angular standalone con TypeScript y templates estrictos.
+- [x] Home, About, Pouches, Carvings, Vests, Contact y 404 con contenido editorial completo.
+- [x] Versiones equivalentes en inglés y español con selector persistente por página.
+- [x] Logo original entregado por la clienta en encabezado y pie.
+- [x] Fotografías del sitio anterior optimizadas en WebP y galerías completas.
+- [x] Formulario accesible con validación, prevención de doble envío y honeypot.
+- [x] Cloudflare Pages Function para enviar mediante Resend sin exponer secretos.
+- [x] Metadatos, canonical, Open Graph, `hreflang`, sitemap y robots bilingües.
+- [x] Prerender de 14 rutas, 404 bilingüe, redirects y encabezados de seguridad.
+- [x] Pruebas de rutas, formulario, transporte y SEO, más comprobación del backend.
 
-- [x] Angular standalone architecture, strict TypeScript/templates, Router and SCSS.
-- [x] Seven routes and wildcard, all prerendered.
-- [x] Shared header/footer, design tokens and locally hosted fonts.
-- [x] Shared editorial blocks, category cards, gallery and page heroes.
-- [x] Reviewable Home using original product and founder photographs.
-- [x] Contact transport abstraction and accessible Reactive Forms validation.
-- [x] Page metadata, sitemap, robots and Cloudflare 404 output.
-- [x] Initial route/form/service tests and production compilation.
-- [ ] User/client visual review of the Home.
+## Para activar en producción
 
-## After visual review
+1. Verificar el dominio remitente en Resend y crear una API key.
+2. Configurar `RESEND_API_KEY`, `CONTACT_TO` y `CONTACT_FROM` en Cloudflare.
+3. Confirmar el correo receptor; el valor publicado actualmente es `contactsafetravelcompany@gmail.com`.
+4. Desplegar y realizar una prueba real de entrega y respuesta.
+5. Conectar el dominio definitivo sin alterar los registros MX del correo.
+6. Añadir la cuenta oficial de Instagram cuando se confirme su URL.
 
-1. About: full editorial story, Americas, South America, cultures/beliefs and gallery.
-2. Pouches: protection beads, Shinto symbols, prayer feathers, handcrafted process and personal use.
-3. Carvings: concepts, alternating editorial sections, personal use and work gallery.
-4. Vests: features, textiles, custom process and purchase enquiry.
-5. Contact: approve details and connect a chosen form provider; exercise real delivery with client authorization.
-6. Verify each completed page at phone/tablet/desktop widths, with keyboard navigation, screen-reader semantics, SEO and Lighthouse.
-7. Publish only once all content and the contact destination are ready; configure the domain and verify the live site.
-
-Run `npm run build` and the relevant tests after each phase. Do not copy the original site's visual layout; use it as a factual source. No approval has yet been recorded for completing the four full interior designs or publishing this preview.
+La activación del proveedor de correo y el despliegue requieren acceso a las cuentas externas. El código y la configuración esperada están listos para esa operación.

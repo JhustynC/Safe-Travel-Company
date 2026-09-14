@@ -5,8 +5,10 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build && node scripts/postbuild.mjs",
+    "typecheck:functions": "tsc --noEmit -p functions/tsconfig.json",
     "watch": "ng build --watch --configuration development",
     "test": "ng test --watch=false",
+    "verify": "npm test && npm run typecheck:functions && npm run build",
     "preview": "node scripts/preview.mjs"
   },
   "private": true,

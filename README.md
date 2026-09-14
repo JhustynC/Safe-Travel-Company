@@ -1,171 +1,85 @@
 # Safe Travel Company
 
-Rediseño editorial multipágina en Angular. Base inicial y Home para revisión visual, siguiendo `target-design/safe-travel-redesign.png` y el contenido real del sitio anterior.
+Sitio editorial bilingüe en Angular para Safe Travel Company. Incluye todo el contenido público de Home, About, Pouches, Carvings, Vests y Contact, conserva el logo entregado por la clienta y genera páginas estáticas listas para Cloudflare Pages.
 
-**Estado:** arquitectura y Home implementadas. `/about`, `/pouches`, `/carvings` y `/vests` tienen páginas provisionales explícitas; su desarrollo completo sigue después de revisar la Home. Contact incluye el formulario validado, pero no envía hasta configurar un endpoint. Esta versión no se ha publicado.
+## Desarrollo
 
-## Stack
-
-- Angular 22, standalone components, lazy routes y prerender estático.
-- TypeScript strict y strict templates; signals para estado de interfaz.
-- SCSS, Grid, Flexbox, CSS custom properties y tipografía fluida.
-- Reactive Forms, HttpClient y servicios separados de SEO/contacto.
-- Vitest y entorno de pruebas oficial de Angular.
-- Sin Bootstrap, Tailwind, Material, jQuery, Express ni servidor de producción.
-
-## Requisitos e instalación
-
-Node **22.22.3** (o una versión compatible de las ramas indicadas en `package.json`) y npm. El proyecto se verificó con Node 22.22.3 / npm 10.9.8.
+Requiere Node 22.22.3 o una versión compatible indicada en `package.json`.
 
 ```sh
-npm install
+npm ci
 npm run start
 ```
 
-Desarrollo: `http://localhost:4200`. Para instalaciones reproducibles, usar `npm ci` con el lockfile incluido. Si npm 10 presenta el error interno `edgesOut`, reintentar con `npm install --legacy-peer-deps`; no se necesita cambiar las dependencias de Angular.
+La aplicación local se abre en `http://localhost:4200`. Comprobación completa:
 
 ```sh
-npm test
-npm run build
-npm run preview
+npm run verify
 ```
 
-`preview` sirve la salida estática en `http://127.0.0.1:4200`, incluidos errores HTTP 404. Detener el servidor de desarrollo antes de usar ese puerto. El servidor de preview es una herramienta local y no se despliega.
+La salida publicable queda en `dist/safe-travel-company/browser`. `npm run preview` sirve esa salida en `http://127.0.0.1:4200`, incluidas las respuestas 404.
+
+## Rutas e idiomas
+
+Las páginas en inglés son `/`, `/about`, `/pouches`, `/carvings`, `/vests`, `/contact` y `/404`. Las equivalentes en español comienzan con `/es`. El selector EN/ES conserva la página actual. Cada versión tiene `lang`, canonical, Open Graph y enlaces `hreflang` propios; el sitemap incluye ambas variantes.
+
+El contenido vive en `src/app/data/content.ts`, los metadatos en `site-content.ts`, las categorías en `products.ts` y la navegación en `navigation.ts`. Las fuentes y fotografías verificadas se describen en `docs/CONTENT-SOURCES.md`.
+
+## Envío del formulario
+
+El navegador envía `POST /api/contact` a una Cloudflare Pages Function incluida en `functions/api/contact.ts`. La Function valida los campos y el honeypot antispam, y llama a Resend desde el servidor. La clave nunca se expone en Angular. El destinatario recibe el mensaje y puede responder directamente a la dirección escrita por el visitante mediante `reply_to`.
+
+Configurar en **Cloudflare > Workers & Pages > safe-travel-company > Settings > Variables and Secrets**:
+
+| Variable | Tipo | Valor |
+| --- | --- | --- |
+| `RESEND_API_KEY` | Secret | Clave creada en Resend |
+| `CONTACT_TO` | Text | Correo que recibirá consultas, inicialmente `contactsafetravelcompany@gmail.com` |
+| `CONTACT_FROM` | Text | Remitente de un dominio verificado, por ejemplo `Safe Travel Company <website@safetravelcompany.com>` |
+
+Antes de activar el envío hay que agregar y verificar el dominio remitente en Resend. Después de configurar las variables, desplegar de nuevo y enviar una consulta de prueba. En producción conviene añadir una regla de rate limiting o Cloudflare Turnstile si aparece spam. La respuesta visual de éxito solo se muestra cuando Resend acepta la solicitud; si falla, el formulario conserva el mensaje para reintentar.
+
+Payload interno:
+
+```json
+{
+  "firstName": "Margaret",
+  "lastName": "",
+  "email": "visitor@example.com",
+  "message": "I would like to ask about a custom vest.",
+  "company": ""
+}
+```
+
+## Cloudflare Pages
+
+- Build command: `npm run build`
+- Build output: `dist/safe-travel-company/browser`
+- Root directory: `/`
+- Node: `22.22.3`
+
+Para un despliegue manual:
+
+```sh
+npm run verify
+npx wrangler pages deploy dist/safe-travel-company/browser --project-name safe-travel-company --branch main
+```
+
+Wrangler detecta `functions/` desde la raíz y publica `/api/contact` junto con los archivos estáticos. El repositorio incluye 404 separados para inglés y español, redirects de `/bags` y encabezados de seguridad. No se debe agregar un fallback `/* /index.html 200`, porque convertiría rutas inexistentes en falsos 200.
 
 ## Estructura
 
 ```text
 src/app/
-  core/
-    config/site.config.ts
-    layout/header/ + footer/
-    services/seo.service.ts + contact.service.ts
-  shared/components/
-    page-hero/ section-heading/ image-content-section/
-    category-card/ quote-block/ gallery/ primary-button/ contact-form/
-  pages/home/ about/ pouches/ carvings/ vests/ contact/ not-found/
-  data/navigation.ts + site-content.ts + products.ts
-  app.routes.ts + app.routes.server.ts
-src/assets/fonts/
-src/assets/images/brand/ home/ about/ pouches/ carvings/ vests/
-public/                 robots, sitemap, redirects, headers, favicon
-scripts/                comprobación postbuild y preview local
-reference/              capturas y originales; no se publican
-target-design/          mockup; no se publica
-docs/                   fuentes y plan de implementación
+  core/       layout, idioma, SEO y transporte de contacto
+  data/       contenido completo EN/ES, navegación y metadatos
+  pages/      Home, About, Pouches, Carvings, Vests, Contact y 404
+  shared/     bloques editoriales, galería, botones y formulario
+src/assets/   logo, fotografías optimizadas y fuentes locales
+functions/    endpoint de correo para Cloudflare Pages
+public/       sitemap, robots, redirects, headers y favicon
+reference/    originales y referencias; no se publican
+docs/         trazabilidad del contenido y estado de entrega
 ```
 
-Las rutas son `/`, `/about`, `/pouches`, `/carvings`, `/vests`, `/contact` y `/404`, además del wildcard. La navegación comparte header/footer y vuelve al inicio al cambiar de ruta. El menú móvil soporta Escape, ciclo de foco y bloqueo/restauración de scroll.
-
-## Contenido e imágenes
-
-Editar `src/app/data/site-content.ts` para marca, contacto, presentación y metadatos. Editar `products.ts` para tarjetas y `navigation.ts` para navegación. El idioma solicitado del sitio es inglés.
-
-El correo y la descripción de Margaret proceden de la web real. Instagram permanece vacío y se oculta hasta confirmar su URL. El monograma ST es provisional; falta el logo aislado aprobado. Fuentes, imágenes y pendientes están documentados en [CONTENT-SOURCES.md](docs/CONTENT-SOURCES.md).
-
-Los originales quedan archivados fuera de la salida pública. La aplicación sirve WebP, con dimensiones y textos alternativos; el hero tiene una variante responsive, prioridad alta y no usa lazy loading. Las demás imágenes se cargan de manera diferida. Cormorant Garamond e Inter se alojan localmente con sus licencias.
-
-## Formulario
-
-`ContactFormComponent` valida nombre obligatorio, email válido y mensaje de 20–5000 caracteres, elimina espacios externos y evita envíos duplicados. Tiene estados de carga, éxito, error y servicio no configurado. Ante fallo conserva el mensaje. El éxito solo se muestra tras una respuesta HTTP satisfactoria.
-
-El endpoint público se configura en `src/app/core/config/site.config.ts`, mediante el token `CONTACT_CONFIG`. El valor inicial es vacío; no se ejecuta ninguna petición y se ofrece el correo real como alternativa.
-
-Contrato inicial: `POST` JSON `{ firstName, lastName, email, message }`, `Accept: application/json`, respuesta 2xx cuando el proveedor acepta el mensaje y error HTTP cuando no lo acepta. El timeout es 15 segundos. Una respuesta HTTP exitosa no garantiza por sí sola la entrega final del correo.
-
-Puede conectarse a Formspree, una Cloudflare Function o una API propia. Si se elige Web3Forms u otro proveedor con campos/respuestas diferentes, adaptar únicamente `ContactService`. Configurar CORS y protección contra spam en el proveedor. Las claves secretas pertenecen al servidor/proveedor, nunca al código frontend. Esta fase no incluye backend ni creación de cuentas.
-
-## SEO y salida estática
-
-Cada ruta define title, description, canonical, Open Graph y Twitter cards. Las URLs canónicas usan el dominio existente `https://safetravelcompany.com`. Si cambia el dominio, actualizar `SITE.url`, `public/robots.txt` y `public/sitemap.xml`.
-
-`angular.json` usa `outputMode: static`; `app.routes.server.ts` prerenderiza las rutas. `scripts/postbuild.mjs` comprueba las siete páginas, un H1 y metadatos, y copia `/404/index.html` a `/404.html`. No es necesario mantener Node en producción.
-
-Salida exacta para publicación:
-
-```text
-dist/safe-travel-company/browser
-```
-
-El archivo `404.html` evita el fallback automático a Home para URLs desconocidas en Cloudflare. No agregar una regla `/* /index.html 200`. El antiguo `/bags` redirige a `/pouches` mediante `public/_redirects`.
-
-## Cloudflare Pages
-
-La aplicación se publica como archivos estáticos en Cloudflare Pages. El build de Angular genera la salida en `dist/safe-travel-company/browser`; no se necesita un servidor Node en producción.
-
-### Valores de Cloudflare
-
-Al crear el proyecto desde **Workers & Pages**, elegir **Pages** y usar:
-
-- **Project name:** `safe-travel-company`
-- **Production branch:** `main`
-- **Build command:** `npm run build`
-- **Build output directory:** `dist/safe-travel-company/browser`
-- **Root directory:** `/`
-- **Node version:** `22.22.3`
-
-El repositorio debe incluir `package-lock.json`. No subir `node_modules`, `dist`, archivos `.env` ni credenciales. El archivo `.node-version` ya fija la versión recomendada de Node.
-
-### Primer despliegue desde la terminal
-
-Desde la raíz del proyecto, instalar dependencias, autenticar Wrangler y crear el proyecto Pages una sola vez:
-
-```sh
-npm install
-npx wrangler login
-npx wrangler pages project create safe-travel-company
-```
-
-Cuando Wrangler pregunte por la rama de producción, escribir:
-
-```text
-main
-```
-
-Después, generar la aplicación y publicarla:
-
-```sh
-npm run build
-npx wrangler pages deploy dist/safe-travel-company/browser --project-name safe-travel-company --branch main
-```
-
-Wrangler mostrará una URL de deployment, por ejemplo `https://<deployment-id>.safe-travel-company.pages.dev`. La URL principal del proyecto será `https://safe-travel-company.pages.dev`.
-
-### Despliegue automático desde Cloudflare
-
-Si Cloudflare ejecuta el build y el despliegue mediante los campos de configuración, usar:
-
-- **Build command:** `npm run build`
-- **Deploy command:** `npx wrangler pages deploy dist/safe-travel-company/browser --project-name safe-travel-company --branch "$CF_PAGES_BRANCH"`
-- **Non-production branch deploy command:** `npx wrangler pages deploy dist/safe-travel-company/browser --project-name safe-travel-company --branch "$CF_PAGES_BRANCH"`
-- **Path:** `/`
-
-El comando de despliegue requiere que el proyecto `safe-travel-company` ya exista y que el token seleccionado tenga permiso **Account > Cloudflare Pages > Edit**. Si no existe, créalo desde la terminal con `npx wrangler pages project create safe-travel-company` o desde el panel de Cloudflare.
-
-### Verificación después del despliegue
-
-Comprobar la página principal y las rutas directamente:
-
-```text
-https://safe-travel-company.pages.dev/
-https://safe-travel-company.pages.dev/about
-https://safe-travel-company.pages.dev/pouches
-https://safe-travel-company.pages.dev/carvings
-https://safe-travel-company.pages.dev/vests
-https://safe-travel-company.pages.dev/contact
-https://safe-travel-company.pages.dev/ruta-inexistente
-```
-
-La última URL debe mostrar la página 404. También comprobar imágenes, fuentes, navegación móvil, sitemap, canonical y el formulario de contacto. En **Custom domains**, agregar el dominio aprobado y seguir las instrucciones DNS de Cloudflare; no cambiar registros DNS del correo.
-
-Documentación oficial: [Angular static rendering](https://angular.dev/guide/ssr), [Cloudflare build configuration](https://developers.cloudflare.com/pages/configuration/build-configuration/), [404 y rutas estáticas](https://developers.cloudflare.com/pages/configuration/serving-pages/), [dominios personalizados](https://developers.cloudflare.com/pages/configuration/custom-domains/).
-
-## Verificación y fases siguientes
-
-`npm test` cubre rutas, wildcard, validaciones, envíos duplicados, endpoint ausente, éxito, errores y actualización de canonical/robots. El postbuild verifica el HTML real generado. La validación visual inicial cubre Home y Contact; las páginas interiores deberán pasar sus propias revisiones cuando estén completas.
-
-El plan y sus pendientes están en [IMPLEMENTATION-PLAN.md](docs/IMPLEMENTATION-PLAN.md). Las puntuaciones Lighthouse son objetivos hasta medir cada versión; no constituyen una garantía permanente después de cambiar contenido, imágenes o proveedores.
-
-## Out of scope
-
-E-commerce, pagos, carrito, login, cuentas, administración, CMS, base de datos, inventario, precios, pedidos online, blog y múltiples idiomas. Los productos conducen a una consulta, sin compra online.
+El proyecto no incluye pagos, carrito, cuentas, CMS, precios ni pedidos online. Las consultas de producto se gestionan por el formulario o por email.

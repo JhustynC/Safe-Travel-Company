@@ -15,7 +15,15 @@ describe('Public routes', () => {
       '/vests',
       '/contact',
       '/404',
+      '/es',
+      '/es/about',
+      '/es/pouches',
+      '/es/carvings',
+      '/es/vests',
+      '/es/contact',
+      '/es/404',
       '/missing-page',
+      '/es/pagina-inexistente',
     ]) {
       await harness.navigateByUrl(path);
       expect(harness.routeNativeElement?.querySelectorAll('h1').length).toBe(1);

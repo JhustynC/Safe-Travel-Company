@@ -7,11 +7,11 @@ describe('SeoService', () => {
   it('updates a single canonical and clears noindex when leaving 404', () => {
     const seo = TestBed.inject(SeoService);
     const document = TestBed.inject(DOCUMENT);
-    seo.update(PAGE_META['notFound']);
+    seo.update(PAGE_META.en.notFound);
     expect(document.querySelector('meta[name="robots"]')?.getAttribute('content')).toContain(
       'noindex',
     );
-    seo.update(PAGE_META['pouches']);
+    seo.update(PAGE_META.en.pouches);
     expect(TestBed.inject(Title).getTitle()).toBe('Travel Pouches | Safe Travel Company');
     expect(document.querySelectorAll('link[rel="canonical"]').length).toBe(1);
     expect(document.querySelector('link[rel="canonical"]')?.getAttribute('href')).toBe(
@@ -19,6 +19,9 @@ describe('SeoService', () => {
     );
     expect(document.querySelector('meta[name="robots"]')?.getAttribute('content')).toBe(
       'index, follow',
+    );
+    expect(document.querySelector('link[hreflang="es"]')?.getAttribute('href')).toBe(
+      SITE.url + '/es/pouches',
     );
   });
 });
