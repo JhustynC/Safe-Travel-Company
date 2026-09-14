@@ -57,6 +57,7 @@ import { LanguageService } from '../../services/language.service';
       padding-bottom: 3rem;
     }
     .footer-logo__disc {
+      position: relative;
       display: grid;
       place-items: center;
       width: 82px;
@@ -66,10 +67,10 @@ import { LanguageService } from '../../services/language.service';
       overflow: hidden;
     }
     .footer-logo img {
-      width: 92px;
-      height: 92px;
-      max-width: none;
-      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
     }
     p {
       max-width: 38ch;
