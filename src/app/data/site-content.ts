@@ -1,66 +1,137 @@
-// Sources: safetravelcompany.com/ and /about/, reviewed 2026-09-12.
-// The mockup is a visual reference, not a source of contact information.
+export type Locale = 'en' | 'es';
+
 export const SITE = {
   brand: 'Safe Travel Company',
   url: 'https://safetravelcompany.com',
-  tagline: 'Art, beliefs and handcrafted objects for a more meaningful journey.',
   email: 'contactsafetravelcompany@gmail.com',
-  instagram: '', // TODO(content): Confirm the official Instagram URL.
-  location: 'Cuenca, Ecuador',
-  footer: 'Discover unique travel accessories supporting a safe journey for every traveler.',
-  introduction:
-    'My goal is to create and share unique objects that have a story to tell, stories that shape your travel world. Stories based on beliefs that empower — the safe traveler.',
-  aboutPreview:
-    'As an environmental scientist, I worked for many years in the Americas. The beliefs and art I encountered on the Navajo, Pueblo and Salish reservations have greatly influenced my carvings. Travel continues to shape my work and my belief in the meaning of safe travels.',
+  instagram: '',
+  location: {
+    en: 'Cuenca, Ecuador',
+    es: 'Cuenca, Ecuador',
+  },
 } as const;
 
 export interface PageMetadata {
   title: string;
   description: string;
   path: string;
+  alternatePath: string;
+  locale: Locale;
   noindex?: boolean;
 }
-export const PAGE_META: Record<string, PageMetadata> = {
-  home: {
-    title: 'Safe Travel Company | Art, Beliefs & Travel',
-    description:
+
+const metadata = (
+  locale: Locale,
+  path: string,
+  alternatePath: string,
+  title: string,
+  description: string,
+  noindex = false,
+): PageMetadata => ({ locale, path, alternatePath, title, description, noindex });
+
+export const PAGE_META = {
+  en: {
+    home: metadata(
+      'en',
+      '/',
+      '/es',
+      'Safe Travel Company | Art, Beliefs & Travel',
       'Discover handcrafted travel accessories inspired by cultures, beliefs and meaningful journeys.',
-    path: '/',
-  },
-  about: {
-    title: 'About | Safe Travel Company',
-    description:
-      'Discover the travels, cultures and beliefs behind the handcrafted work of Safe Travel Company.',
-    path: '/about',
-  },
-  pouches: {
-    title: 'Travel Pouches | Safe Travel Company',
-    description:
-      'Original, hand-painted and hand-sewn pouches: a holding place for meaningful symbols on your travels.',
-    path: '/pouches',
-  },
-  carvings: {
-    title: 'Handcrafted Carvings | Safe Travel Company',
-    description:
+    ),
+    about: metadata(
+      'en',
+      '/about',
+      '/es/about',
+      'About | Safe Travel Company',
+      'Discover Margaret’s travels and the cultures and beliefs behind Safe Travel Company.',
+    ),
+    pouches: metadata(
+      'en',
+      '/pouches',
+      '/es/pouches',
+      'Travel Pouches | Safe Travel Company',
+      'Explore original, hand-painted travel pouches and the meaningful symbols they hold.',
+    ),
+    carvings: metadata(
+      'en',
+      '/carvings',
+      '/es/carvings',
+      'Handcrafted Carvings | Safe Travel Company',
       'Explore hand-carved talismans and prayer feathers inspired by birds, cultures and beliefs.',
-    path: '/carvings',
-  },
-  vests: {
-    title: 'Custom Travel Vests | Safe Travel Company',
-    description:
-      'Discover functional, handcrafted travel vests and textiles made for a meaningful journey.',
-    path: '/vests',
-  },
-  contact: {
-    title: 'Contact | Safe Travel Company',
-    description:
+    ),
+    vests: metadata(
+      'en',
+      '/vests',
+      '/es/vests',
+      'Custom Travel Vests | Safe Travel Company',
+      'Discover functional travel vests handcrafted from South American textiles.',
+    ),
+    contact: metadata(
+      'en',
+      '/contact',
+      '/es/contact',
+      'Contact | Safe Travel Company',
       'Contact Safe Travel Company about a pouch, carving or custom vest from Cuenca, Ecuador.',
-    path: '/contact',
+    ),
+    notFound: metadata(
+      'en',
+      '/404',
+      '/es/404',
+      'Page Not Found | Safe Travel Company',
+      'This path could not be found. Continue your journey with Safe Travel Company.',
+      true,
+    ),
   },
-  notFound: {
-    title: 'Page Not Found | Safe Travel Company',
-    description: 'This path could not be found. Continue your journey with Safe Travel Company.',
-    path: '/404',
-    noindex: true,
+  es: {
+    home: metadata(
+      'es',
+      '/es',
+      '/',
+      'Safe Travel Company | Arte, creencias y viajes',
+      'Descubre accesorios de viaje artesanales inspirados en culturas, creencias y viajes con significado.',
+    ),
+    about: metadata(
+      'es',
+      '/es/about',
+      '/about',
+      'Acerca de | Safe Travel Company',
+      'Conoce los viajes de Margaret y las culturas y creencias detrás de Safe Travel Company.',
+    ),
+    pouches: metadata(
+      'es',
+      '/es/pouches',
+      '/pouches',
+      'Bolsas de viaje | Safe Travel Company',
+      'Descubre bolsas de viaje originales, pintadas a mano, y los símbolos significativos que protegen.',
+    ),
+    carvings: metadata(
+      'es',
+      '/es/carvings',
+      '/carvings',
+      'Tallas artesanales | Safe Travel Company',
+      'Descubre talismanes y plumas de oración tallados a mano e inspirados en aves, culturas y creencias.',
+    ),
+    vests: metadata(
+      'es',
+      '/es/vests',
+      '/vests',
+      'Chalecos de viaje a medida | Safe Travel Company',
+      'Descubre chalecos funcionales hechos a mano con textiles sudamericanos.',
+    ),
+    contact: metadata(
+      'es',
+      '/es/contact',
+      '/contact',
+      'Contacto | Safe Travel Company',
+      'Contacta a Safe Travel Company por una bolsa, talla o chaleco a medida desde Cuenca, Ecuador.',
+    ),
+    notFound: metadata(
+      'es',
+      '/es/404',
+      '/404',
+      'Página no encontrada | Safe Travel Company',
+      'No encontramos esta ruta. Continúa tu viaje con Safe Travel Company.',
+      true,
+    ),
   },
-};
+} as const;

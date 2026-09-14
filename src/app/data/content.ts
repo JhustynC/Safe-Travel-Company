@@ -1,0 +1,458 @@
+export const CONTENT = {
+  en: {
+    common: {
+      exploreStory: 'Explore Our Story',
+      readStory: 'Read My Story',
+      getInTouch: 'Get in Touch',
+      askVest: 'Ask About a Custom Vest',
+      explore: 'Explore',
+    },
+    home: {
+      eyebrow: 'ART · BELIEFS · THE JOURNEY',
+      title: 'Safe Travel Company',
+      tagline: 'Art, beliefs and handcrafted objects for a more meaningful journey.',
+      objectNote: 'Objects with a story. Made by hand.',
+      imageLabel: 'PRAYER FEATHERS',
+      imageSubLabel: 'A connection. A messenger.',
+      vertical: 'CREATE YOUR TRAVEL WORLD',
+      inspired: 'INSPIRED BY CULTURES. CARRIED WITH MEANING.',
+      discover: 'Discover our world',
+      note: 'A NOTE FROM MARGARET',
+      createTitle: 'Create Your Travel World',
+      introduction:
+        'My goal is to create and share unique objects that have a story to tell, stories that shape your travel world. Stories based on beliefs that empower — the safe traveler.',
+      signature: 'Creator & traveler',
+      categoriesEyebrow: 'MEANING IN EVERY PIECE',
+      categoriesTitle: 'Discover Our World',
+      quoteEyebrow: 'A WAY OF TRAVELING',
+      quote: 'Travel lighter, travel deeper.',
+      aboutEyebrow: 'THE PERSON BEHIND THE PIECES',
+      aboutTitle: 'A Journey of Beliefs and Cultures',
+      aboutPreview:
+        'As an environmental scientist, I worked for many years in the Americas. The beliefs and art I encountered on the Navajo, Pueblo and Salish reservations have greatly influenced my carvings. Travel continues to shape my work and my belief in the meaning of safe travels.',
+      founderAlt:
+        'Margaret, the creator of Safe Travel Company, standing at the entrance of a gallery in Cuenca',
+      founderCaption: 'Margaret · The person behind Safe Travel Company',
+      ctaEyebrow: 'YOUR JOURNEY, YOUR STORY',
+      ctaTitle: 'Have something meaningful in mind?',
+      featherAlt:
+        'Three hand-carved prayer feathers in black, white and natural wood, suspended from cords',
+    },
+    about: {
+      eyebrow: 'ABOUT',
+      title: 'A Journey of Beliefs and Cultures',
+      intro:
+        'My work grew from years of travel, environmental stewardship and a deep respect for the beliefs that connect people to place.',
+      founderAlt: 'Margaret smiling at the doorway of Martha Gallery in Cuenca, Ecuador',
+      americasEyebrow: 'THE AMERICAS',
+      americasTitle: 'Sacred entities and healing traditions',
+      americas: [
+        'As an environmental scientist, I worked for many years throughout the Americas. On the Navajo, Pueblo and Salish reservations in the United States, I discovered beliefs in sacred entities and healing ceremonies.',
+        'The art and traditions I encountered there have greatly influenced my carvings and the way I understand objects that carry meaning.',
+      ],
+      southEyebrow: 'SOUTH AMERICA',
+      southTitle: 'Fields, mountains and the Andes',
+      south: [
+        'My work in South America took me into agricultural fields in Costa Rica, Ecuador, Colombia, Honduras and Chile. Andean spirituality reinforced the influence of sacred beings, especially the condor and the hummingbird.',
+        'Ecuador, Cuenca and the Galápagos Islands have become my mainstay. With every adventure, the power of myth continues to prove true.',
+      ],
+      culturesEyebrow: 'CULTURES & BELIEFS',
+      culturesTitle: 'A world of symbols',
+      cultures: [
+        'My travels also took me to Japan and to countries across eastern and western Europe while I helped businesses and governments meet the demands of environmental regulation and stewardship.',
+        'The divine spirits known as kami, and Shinto’s attention to harmony with our surroundings, strengthened my belief in the influence and protection that symbols can hold in human life.',
+      ],
+      pointTitle: 'What safe travel means to me',
+      point:
+        'I have traveled widely for my work and, as a curious traveler, made it through many uncertain situations. My belief in safe travel lives in my green beads, more talismans and prayer feathers than I care to count, faith in their symbolic and traditional values — and always a travel vest.',
+      quote: 'A true connection to places, people and beliefs gives meaning to the journey.',
+      galleryTitle: 'Nature, cultures and inspiration',
+      galleryEyebrow: 'THE SOURCES OF THE WORK',
+      gallery: [
+        'The landscape carried with you',
+        'Belief translated into form',
+        'Textiles shaped by the journey',
+      ],
+    },
+    pouches: {
+      eyebrow: 'POUCHES',
+      title: 'Symbols You Carry With You',
+      intro:
+        'The pouch is a holding place for symbols and the meaning or belief behind them. Each pouch is an original art piece, painted and sewn by hand, featuring hand-carved symbols.',
+      heroAlt:
+        'Collection of hand-painted Safe Travel pouches inspired by Cotopaxi and the Galápagos Islands',
+      protectionTitle: 'Protection Beads',
+      protectionEyebrow: 'A FAMILIAR OBJECT',
+      protection:
+        'Protection beads are a universal comfort object. They can be used to count prayers, support meditation, pass the time and relieve stress. With use, the familiar touch carries a sense of energy and protection. Beads in hand, you remain centered and focused on the matter before you.',
+      protectionAlt: 'Brown protection beads arranged in a loop with a blue accent bead',
+      shintoTitle: 'Shinto Symbols',
+      shintoEyebrow: 'HARMONY WITH YOUR SURROUNDINGS',
+      shinto:
+        'In Shinto tradition, the power of the gods has long been placed in small packets or wooden symbols to bring protection to their owner. Respect for nature and oneself emphasizes harmony and connection to one’s surroundings. The kanji on this piece means travel safety: the meaning and written form of a word can shape reality.',
+      shintoAlt: 'Hand-painted wooden symbol with Japanese kanji for travel safety',
+      feathersTitle: 'Prayer Feathers',
+      feathersEyebrow: 'A BRIDGE BETWEEN WORLDS',
+      feathers:
+        'From the eagle to the smallest sparrow, the feather is a bridge between spiritual and physical worlds. It reminds the traveler of the ability to go wherever they need to be. The feather offers direction on one’s own path and embodies trust, honor, strength, wisdom, power and freedom.',
+      feathersAlt: 'Three small hand-carved prayer feathers in natural golden tones',
+      handcraftedTitle: 'Handcrafted on the journey',
+      handcrafted:
+        'Every pouch is original, painted and sewn by hand. The carved symbols can be carried inside, allowing each piece to become both useful and personal.',
+      useEyebrow: 'A PERSONAL PRACTICE',
+      useTitle: 'How I Use My Pouch',
+      use: [
+        'I carry my personal belief symbols in the first pouch I made on Floreana Island. Before the pouch, I carried them for decades, scattered throughout my backpack. The objects include a green rosary from Ireland, a Shinto amulet and a feather.',
+        'The pouches are made during my travels. The Cotopaxi collection was created in Quito and Santa Cruz in the Galápagos, and another collection was painted in Cuenca at Martha Gallery. They are generally sold where I am staying and where they are made. Safe Travel pouches can be requested with or without the symbols.',
+      ],
+      galleryEyebrow: 'THE COLLECTION',
+      galleryTitle: 'My Work',
+      galleryAlt: 'Original hand-painted Safe Travel pouch',
+    },
+    carvings: {
+      eyebrow: 'CARVINGS',
+      title: 'Ancient Symbols, Living Meanings',
+      intro:
+        'Wood carving and the creation of talismans associated with birds and their feathers have deep roots in many cultures.',
+      heroAlt: 'Group of hand-carved and painted Safe Travel talismans',
+      concepts: [
+        ['Birds', 'Freedom, guidance and the connection between sky and earth.'],
+        ['Shinto Influence', 'Harmony with our surroundings and protection through the spirits.'],
+        ['Andean Cultures', 'Ancient symbols that continue to guide, protect and carry meaning.'],
+      ],
+      feathersEyebrow: 'MESSAGES TO THE SPIRIT',
+      feathersTitle: 'Prayer Feathers',
+      feathers:
+        'For more than two thousand years, Pueblo people — descendants of the Ancestral Puebloans — have carved figures and used prayer feathers as a conduit for messages to the Great Spirit. Prayer feathers are also used in blessings and healing, drawing power from the sky and establishing a spiritual bond for the traveler.',
+      feathersAlt: 'Three tall hand-carved prayer feathers with dark painted tips',
+      talismansEyebrow: 'PROTECTION IN MANY FORMS',
+      talismansTitle: 'Talismans',
+      talismans:
+        'My talismans represent birds such as the crow, condor, eagle and hummingbird. Maiden figures from Ancestral Puebloan and Andean cultures accompany these power-based talismans with ideas of protection for the home and community.',
+      talismansAlt: 'Three wooden talismans painted in earth tones and blue',
+      andeanEyebrow: 'POWER FROM THE SKY',
+      andeanTitle: 'Andean Symbolism',
+      andean:
+        'Andean talismans are associated with spiritual expression and belief. The condor and eagle carry ideas of power, freedom, wisdom and leadership. My carvings carry beliefs in guidance, protection, health and good fortune — safe travel.',
+      andeanAlt: 'Andean-inspired hand-carved talisman with bird and human forms',
+      shintoEyebrow: 'A CONNECTION TO PLACE',
+      shintoTitle: 'Shinto Connection',
+      shinto:
+        'Each carving is enriched by a relationship to Shinto beliefs in protection by the spirits. The torii marks a passage into sacred space, while the characters 交通安全 express a wish for safety in travel.',
+      shintoAlt: 'Black torii gate symbol representing Shinto tradition',
+      quote: 'Carvings are my way of keeping these traditions alive.',
+      useEyebrow: 'LIVING WITH THE WORK',
+      useTitle: 'How I Use Them and View My Work',
+      use: [
+        'At home, my prayer feathers and talismans are art pieces that hang on the wall. When traveling, I wear a prayer feather as a connection with the spirits and carry a special talisman in my backpack. At my destination, I place them in the room to cleanse and clear the space. It is remarkable how different the room feels afterward.',
+        'Carvings can be seen at Martha Gallery in Cuenca. Every piece is one of a kind, carved and painted by hand during my travels.',
+      ],
+      galleryEyebrow: 'ONE OF A KIND',
+      galleryTitle: 'My Work',
+      galleryAlt: 'Original Safe Travel carving or prayer feather',
+    },
+    vests: {
+      eyebrow: 'VESTS',
+      title: 'Functional Art for the Traveler',
+      intro:
+        'The Safe Travel Vest is a functional and practical part of traveling safely. Secure hidden pockets make it a convenient, comfortable way to carry valuables.',
+      heroAlt: 'Orange, ochre and green custom travel vest with a hood',
+      features: [
+        ['Artisanal', 'Handmade with quality fabrics found during the journey.'],
+        ['Practical', 'Lined construction and discreet pockets for valuables.'],
+        ['Unique', 'A one-of-a-kind piece connected to the culture of a destination.'],
+      ],
+      whyEyebrow: 'QUIETLY PRACTICAL',
+      whyTitle: 'Why This Vest?',
+      why: 'A traditional travel vest has its uses, but there are cities and small towns where a traveler may not want to look like a tourist carrying a full complement of gear. Layered clothing made from local fabric blends into everyday life. Each Safe Travel vest complements what you wear, remains timeless and speaks to the culture of its destination.',
+      customEyebrow: 'MADE FOR YOUR JOURNEY',
+      customTitle: 'Custom Made',
+      custom:
+        'Artisanal textiles and safety wear come together in these pieces. Ponchos and beautiful handmade fabrics found throughout South America can be remade as hooded or round-neck travel wear. Cotton or silk lining, zippered fronts, inseam pockets, inner zippered pockets for documents, wallet and phone, and an open inner pocket help protect valuables. Jackets can also be made from ponchos.',
+      processEyebrow: 'FROM TEXTILE TO TRAVEL WEAR',
+      processTitle: 'How the Process Works',
+      process: [
+        ['Choose the textile', 'Begin with a poncho or textile connected to your destination.'],
+        ['Designed for your journey', 'We discuss the form, fit, lining and pockets you need.'],
+        [
+          'Handcrafted final piece',
+          'The textile becomes a unique vest or jacket, finished by hand.',
+        ],
+      ],
+      purchaseEyebrow: 'SPECIAL ORDERS',
+      purchaseTitle: 'How to Purchase',
+      purchase:
+        'Each vest is made to order using textiles from your travel destination. The process begins with a conversation about the journey and the piece you have in mind.',
+    },
+    contact: {
+      eyebrow: 'CONTACT',
+      title: "Let's create something meaningful for your journey.",
+      intro:
+        'If you are interested in a pouch, carving or vest, have a question, or simply want to say hello, I would love to hear from you.',
+      conversation: 'A CONVERSATION STARTS HERE',
+      getInTouch: 'Get in touch.',
+      email: 'Email',
+      based: 'Based in',
+      custom: 'Custom pieces available upon request.',
+      closing: 'Safe travels!',
+    },
+    form: {
+      required: 'Fields marked * are required.',
+      firstName: 'First Name',
+      lastName: 'Last Name',
+      email: 'Email',
+      message: 'Message',
+      messageHelp: 'At least 20 characters.',
+      firstError: 'Please enter your first name.',
+      emailError: 'Please enter a valid email address.',
+      messageError: 'Please write a message of at least 20 characters.',
+      unavailable: 'Online messages are not available yet.',
+      emailMargaret: 'Email Margaret',
+      sending: 'Sending…',
+      send: 'Send Message',
+      success: 'Thank you. Your message has been sent.',
+      error:
+        'Your message could not be sent. Please try again or email Margaret. Your message is still here.',
+      notSent: 'Your message has not been sent. Please use the email link above to get in touch.',
+    },
+    notFound: {
+      eyebrow: '404 · A DIFFERENT PATH',
+      title: 'Looks like this journey took a different path.',
+      text: 'The page you are looking for could not be found. There is still a world to explore.',
+      button: 'Return Home',
+    },
+  },
+  es: {
+    common: {
+      exploreStory: 'Conoce nuestra historia',
+      readStory: 'Lee mi historia',
+      getInTouch: 'Contáctanos',
+      askVest: 'Consulta por un chaleco a medida',
+      explore: 'Explorar',
+    },
+    home: {
+      eyebrow: 'ARTE · CREENCIAS · EL VIAJE',
+      title: 'Safe Travel Company',
+      tagline: 'Arte, creencias y objetos hechos a mano para un viaje con mayor significado.',
+      objectNote: 'Objetos con una historia. Hechos a mano.',
+      imageLabel: 'PLUMAS DE ORACIÓN',
+      imageSubLabel: 'Una conexión. Un mensaje.',
+      vertical: 'CREA TU MUNDO DE VIAJES',
+      inspired: 'INSPIRADO EN CULTURAS. LLEVADO CON SIGNIFICADO.',
+      discover: 'Descubre nuestro mundo',
+      note: 'UNA NOTA DE MARGARET',
+      createTitle: 'Crea tu mundo de viajes',
+      introduction:
+        'Mi objetivo es crear y compartir objetos únicos que tengan una historia que contar; historias que den forma a tu mundo de viajes. Historias basadas en creencias que fortalecen a quien viaja con seguridad.',
+      signature: 'Creadora y viajera',
+      categoriesEyebrow: 'SIGNIFICADO EN CADA PIEZA',
+      categoriesTitle: 'Descubre nuestro mundo',
+      quoteEyebrow: 'UNA FORMA DE VIAJAR',
+      quote: 'Viaja más ligero, viaja más profundo.',
+      aboutEyebrow: 'LA PERSONA DETRÁS DE LAS PIEZAS',
+      aboutTitle: 'Un viaje de creencias y culturas',
+      aboutPreview:
+        'Como científica ambiental, trabajé durante muchos años en América. Las creencias y el arte que conocí en las reservas navajo, pueblo y salish han influido profundamente en mis tallas. Viajar sigue dando forma a mi trabajo y a mi idea de un viaje seguro.',
+      founderAlt:
+        'Margaret, creadora de Safe Travel Company, en la entrada de una galería de Cuenca',
+      founderCaption: 'Margaret · La persona detrás de Safe Travel Company',
+      ctaEyebrow: 'TU VIAJE, TU HISTORIA',
+      ctaTitle: '¿Tienes en mente algo con significado?',
+      featherAlt:
+        'Tres plumas de oración talladas a mano en negro, blanco y madera natural, suspendidas de cordones',
+    },
+    about: {
+      eyebrow: 'ACERCA DE',
+      title: 'Un viaje de creencias y culturas',
+      intro:
+        'Mi trabajo nació de años de viajes, gestión ambiental y un profundo respeto por las creencias que conectan a las personas con los lugares.',
+      founderAlt: 'Margaret sonríe en la entrada de Martha Gallery en Cuenca, Ecuador',
+      americasEyebrow: 'AMÉRICA',
+      americasTitle: 'Entidades sagradas y tradiciones de sanación',
+      americas: [
+        'Como científica ambiental, trabajé durante muchos años en América. En las reservas navajo, pueblo y salish de Estados Unidos conocí creencias en entidades sagradas y ceremonias de sanación.',
+        'El arte y las tradiciones que encontré allí han influido profundamente en mis tallas y en mi forma de entender los objetos que llevan significado.',
+      ],
+      southEyebrow: 'AMÉRICA LATINA',
+      southTitle: 'Campos, montañas y los Andes',
+      south: [
+        'Mi trabajo en América Latina me llevó a campos agrícolas de Costa Rica, Ecuador, Colombia, Honduras y Chile. La espiritualidad andina reforzó la presencia de seres sagrados, especialmente el cóndor y el colibrí.',
+        'Ecuador, Cuenca y las islas Galápagos se han convertido en mi lugar principal. Con cada aventura, el poder del mito continúa demostrando su vigencia.',
+      ],
+      culturesEyebrow: 'CULTURAS Y CREENCIAS',
+      culturesTitle: 'Un mundo de símbolos',
+      cultures: [
+        'Mis viajes también me llevaron a Japón y a países de Europa oriental y occidental, mientras ayudaba a empresas y gobiernos a cumplir las exigencias de la regulación y la gestión ambiental.',
+        'Los espíritus divinos conocidos como kami y la atención del sintoísmo a la armonía con nuestro entorno fortalecieron mi creencia en la influencia y la protección que los símbolos pueden tener en la vida humana.',
+      ],
+      pointTitle: 'Lo que significa viajar con seguridad para mí',
+      point:
+        'He viajado mucho por mi trabajo y, como viajera curiosa, he atravesado muchas situaciones inciertas. Mi creencia en un viaje seguro vive en mis cuentas verdes, en más talismanes y plumas de oración de los que puedo contar, en la fe en sus valores simbólicos y tradicionales — y siempre en un chaleco de viaje.',
+      quote:
+        'Una conexión verdadera con los lugares, las personas y las creencias da significado al viaje.',
+      galleryTitle: 'Naturaleza, culturas e inspiración',
+      galleryEyebrow: 'LAS FUENTES DEL TRABAJO',
+      gallery: [
+        'El paisaje que llevas contigo',
+        'La creencia traducida en forma',
+        'Textiles definidos por el viaje',
+      ],
+    },
+    pouches: {
+      eyebrow: 'BOLSAS',
+      title: 'Símbolos que llevas contigo',
+      intro:
+        'La bolsa es un lugar para guardar símbolos y el significado o la creencia que hay detrás de ellos. Cada bolsa es una obra original, pintada y cosida a mano, que incorpora símbolos tallados.',
+      heroAlt:
+        'Colección de bolsas Safe Travel pintadas a mano e inspiradas en Cotopaxi y las islas Galápagos',
+      protectionTitle: 'Cuentas de protección',
+      protectionEyebrow: 'UN OBJETO FAMILIAR',
+      protection:
+        'Las cuentas de protección son un objeto universal de consuelo. Pueden usarse para contar oraciones, apoyar la meditación, pasar el tiempo y aliviar el estrés. Con el uso, su tacto familiar transmite energía y protección. Con las cuentas en la mano, permaneces centrado en el asunto que tienes delante.',
+      protectionAlt: 'Cuentas de protección marrones en forma de lazo con una cuenta azul',
+      shintoTitle: 'Símbolos sintoístas',
+      shintoEyebrow: 'ARMONÍA CON TU ENTORNO',
+      shinto:
+        'En la tradición sintoísta, el poder de los dioses se ha guardado durante mucho tiempo en pequeños paquetes o símbolos de madera para proteger a su dueño. El respeto por la naturaleza y por uno mismo destaca la armonía y la conexión con el entorno. El kanji de esta pieza significa seguridad en el viaje: el significado y la forma escrita de una palabra pueden dar forma a la realidad.',
+      shintoAlt: 'Símbolo de madera pintado a mano con kanji japonés de seguridad en el viaje',
+      feathersTitle: 'Plumas de oración',
+      feathersEyebrow: 'UN PUENTE ENTRE MUNDOS',
+      feathers:
+        'Desde el águila hasta el gorrión más pequeño, la pluma es un puente entre los mundos espiritual y físico. Recuerda a quien viaja su capacidad de llegar adonde necesita. La pluma orienta el camino propio y encarna confianza, honor, fortaleza, sabiduría, poder y libertad.',
+      feathersAlt: 'Tres pequeñas plumas de oración talladas a mano en tonos dorados naturales',
+      handcraftedTitle: 'Hechas a mano durante el viaje',
+      handcrafted:
+        'Cada bolsa es original, pintada y cosida a mano. Los símbolos tallados pueden llevarse en su interior, de modo que cada pieza sea útil y personal.',
+      useEyebrow: 'UNA PRÁCTICA PERSONAL',
+      useTitle: 'Cómo uso mi bolsa',
+      use: [
+        'Llevo mis símbolos personales en la primera bolsa que hice en la isla Floreana. Antes, los llevé durante décadas dispersos en mi mochila. Entre ellos hay un rosario verde de Irlanda, un amuleto sintoísta y una pluma.',
+        'Las bolsas se elaboran durante mis viajes. La colección Cotopaxi se creó en Quito y Santa Cruz, en Galápagos, y otra colección fue pintada en Cuenca, en Martha Gallery. Por lo general se venden donde me encuentro y donde fueron hechas. Las bolsas Safe Travel pueden solicitarse con o sin los símbolos.',
+      ],
+      galleryEyebrow: 'LA COLECCIÓN',
+      galleryTitle: 'Mi trabajo',
+      galleryAlt: 'Bolsa Safe Travel original pintada a mano',
+    },
+    carvings: {
+      eyebrow: 'TALLAS',
+      title: 'Símbolos antiguos, significados vivos',
+      intro:
+        'La talla en madera y la creación de talismanes asociados con las aves y sus plumas tienen raíces profundas en muchas culturas.',
+      heroAlt: 'Conjunto de talismanes Safe Travel tallados y pintados a mano',
+      concepts: [
+        ['Aves', 'Libertad, orientación y conexión entre el cielo y la tierra.'],
+        [
+          'Influencia sintoísta',
+          'Armonía con nuestro entorno y protección a través de los espíritus.',
+        ],
+        [
+          'Culturas andinas',
+          'Símbolos antiguos que siguen orientando, protegiendo y llevando significado.',
+        ],
+      ],
+      feathersEyebrow: 'MENSAJES AL ESPÍRITU',
+      feathersTitle: 'Plumas de oración',
+      feathers:
+        'Durante más de dos mil años, los pueblos Pueblo — descendientes de los pueblos ancestrales de la región — han tallado figuras y usado plumas de oración como conducto para llevar mensajes al Gran Espíritu. También se usan en bendiciones y sanación; toman fuerza del cielo y establecen un vínculo espiritual para quien viaja.',
+      feathersAlt: 'Tres plumas de oración altas, talladas a mano y con puntas oscuras',
+      talismansEyebrow: 'PROTECCIÓN EN MUCHAS FORMAS',
+      talismansTitle: 'Talismanes',
+      talismans:
+        'Mis talismanes representan aves como el cuervo, el cóndor, el águila y el colibrí. Figuras femeninas de culturas ancestrales Pueblo y andinas acompañan estos talismanes de poder con ideas de protección para el hogar y la comunidad.',
+      talismansAlt: 'Tres talismanes de madera pintados en tonos tierra y azul',
+      andeanEyebrow: 'PODER DESDE EL CIELO',
+      andeanTitle: 'Simbolismo andino',
+      andean:
+        'Los talismanes andinos se asocian con la expresión espiritual y las creencias. El cóndor y el águila llevan ideas de poder, libertad, sabiduría y liderazgo. Mis tallas transmiten creencias de orientación, protección, salud y buena fortuna: un viaje seguro.',
+      andeanAlt: 'Talismán tallado a mano e inspirado en figuras humanas y aves andinas',
+      shintoEyebrow: 'UNA CONEXIÓN CON EL LUGAR',
+      shintoTitle: 'Conexión sintoísta',
+      shinto:
+        'Cada talla se enriquece con su relación con las creencias sintoístas de protección por los espíritus. El torii marca el paso hacia un espacio sagrado, mientras los caracteres 交通安全 expresan un deseo de seguridad en el viaje.',
+      shintoAlt: 'Símbolo negro de una puerta torii que representa la tradición sintoísta',
+      quote: 'Las tallas son mi forma de mantener vivas estas tradiciones.',
+      useEyebrow: 'VIVIR CON EL TRABAJO',
+      useTitle: 'Cómo las uso y cómo veo mi trabajo',
+      use: [
+        'En casa, mis plumas de oración y talismanes son piezas de arte que cuelgan de la pared. Cuando viajo, llevo una pluma como conexión con los espíritus y un talismán especial en la mochila. Al llegar, los coloco en la habitación para limpiar y despejar el espacio. Es sorprendente lo diferente que se siente después.',
+        'Las tallas pueden verse en Martha Gallery, en Cuenca. Cada pieza es única, tallada y pintada a mano durante mis viajes.',
+      ],
+      galleryEyebrow: 'PIEZAS ÚNICAS',
+      galleryTitle: 'Mi trabajo',
+      galleryAlt: 'Talla o pluma de oración original de Safe Travel',
+    },
+    vests: {
+      eyebrow: 'CHALECOS',
+      title: 'Arte funcional para quien viaja',
+      intro:
+        'El chaleco Safe Travel es una parte funcional y práctica de un viaje seguro. Sus bolsillos ocultos permiten llevar objetos de valor de una forma cómoda y conveniente.',
+      heroAlt: 'Chaleco de viaje a medida en tonos naranja, ocre y verde con capucha',
+      features: [
+        ['Artesanal', 'Hecho a mano con tejidos de calidad encontrados durante el viaje.'],
+        ['Práctico', 'Con forro y bolsillos discretos para proteger tus objetos de valor.'],
+        ['Único', 'Una pieza irrepetible conectada con la cultura de un destino.'],
+      ],
+      whyEyebrow: 'PRÁCTICO Y DISCRETO',
+      whyTitle: '¿Por qué este chaleco?',
+      why: 'Un chaleco de viaje tradicional tiene sus usos, pero hay ciudades y pueblos donde quizá no quieras parecer un turista cargado con todo su equipo. Las prendas superpuestas confeccionadas con tejidos locales se integran en la vida cotidiana. Cada chaleco Safe Travel complementa tu ropa, es atemporal y habla de la cultura de su destino.',
+      customEyebrow: 'HECHO PARA TU VIAJE',
+      customTitle: 'Hecho a medida',
+      custom:
+        'En estas piezas se unen textiles artesanales y ropa pensada para la seguridad. Los ponchos y hermosos tejidos hechos a mano que se encuentran en América Latina pueden transformarse en prendas de viaje con capucha o cuello redondo. El forro de algodón o seda, el cierre frontal, los bolsillos laterales y los bolsillos interiores con cierre para documentos, billetera y teléfono ayudan a proteger tus objetos de valor. También se pueden crear chaquetas a partir de ponchos.',
+      processEyebrow: 'DEL TEXTIL A LA PRENDA DE VIAJE',
+      processTitle: 'Cómo funciona el proceso',
+      process: [
+        ['Elige el textil', 'Comienza con un poncho o tejido conectado con tu destino.'],
+        [
+          'Diseñado para tu viaje',
+          'Conversamos sobre la forma, el ajuste, el forro y los bolsillos que necesitas.',
+        ],
+        [
+          'Pieza final hecha a mano',
+          'El tejido se convierte en un chaleco o chaqueta únicos, terminados a mano.',
+        ],
+      ],
+      purchaseEyebrow: 'PEDIDOS ESPECIALES',
+      purchaseTitle: 'Cómo comprar',
+      purchase:
+        'Cada chaleco se hace por encargo con textiles del destino de tu viaje. El proceso comienza con una conversación sobre el trayecto y la pieza que tienes en mente.',
+    },
+    contact: {
+      eyebrow: 'CONTACTO',
+      title: 'Creemos algo con significado para tu viaje.',
+      intro:
+        'Si te interesa una bolsa, una talla o un chaleco, tienes una pregunta o simplemente quieres saludar, me encantará saber de ti.',
+      conversation: 'UNA CONVERSACIÓN COMIENZA AQUÍ',
+      getInTouch: 'Ponte en contacto.',
+      email: 'Correo',
+      based: 'Ubicación',
+      custom: 'Piezas a medida disponibles por encargo.',
+      closing: '¡Buen viaje!',
+    },
+    form: {
+      required: 'Los campos marcados con * son obligatorios.',
+      firstName: 'Nombre',
+      lastName: 'Apellido',
+      email: 'Correo electrónico',
+      message: 'Mensaje',
+      messageHelp: 'Mínimo 20 caracteres.',
+      firstError: 'Escribe tu nombre.',
+      emailError: 'Escribe una dirección de correo válida.',
+      messageError: 'Escribe un mensaje de al menos 20 caracteres.',
+      unavailable: 'El envío en línea todavía no está disponible.',
+      emailMargaret: 'Escríbele a Margaret',
+      sending: 'Enviando…',
+      send: 'Enviar mensaje',
+      success: 'Gracias. Tu mensaje se ha enviado.',
+      error:
+        'No pudimos enviar tu mensaje. Inténtalo de nuevo o escribe a Margaret. Tu mensaje sigue aquí.',
+      notSent: 'Tu mensaje no se ha enviado. Usa el enlace de correo anterior para contactarnos.',
+    },
+    notFound: {
+      eyebrow: '404 · OTRO CAMINO',
+      title: 'Parece que este viaje tomó una ruta diferente.',
+      text: 'No encontramos la página que buscas. Todavía queda un mundo por explorar.',
+      button: 'Volver al inicio',
+    },
+  },
+} as const;

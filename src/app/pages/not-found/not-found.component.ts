@@ -1,14 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { PageHeroComponent } from '../../shared/components/page-hero/page-hero.component';
 import { PrimaryButtonComponent } from '../../shared/components/primary-button/primary-button.component';
+import { CONTENT } from '../../data/content';
+import { LanguageService } from '../../core/services/language.service';
+
 @Component({
   selector: 'app-not-found',
   imports: [PageHeroComponent, PrimaryButtonComponent],
-  template: `<app-page-hero
-    eyebrow="404 · A DIFFERENT PATH"
-    title="Looks like this journey took a different path."
-    ><p>The page you are looking for could not be found. There is still a world to explore.</p>
-    <app-primary-button route="/">Return Home</app-primary-button></app-page-hero
+  template: `<app-page-hero [eyebrow]="copy().eyebrow" [title]="copy().title"
+    ><p>{{ copy().text }}</p>
+    <app-primary-button [route]="homeRoute()">{{
+      copy().button
+    }}</app-primary-button></app-page-hero
   >`,
 })
-export class NotFoundComponent {}
+export class NotFoundComponent {
+  private readonly language = inject(LanguageService);
+  readonly copy = computed(() => CONTENT[this.language.current()].notFound);
+  readonly homeRoute = computed(() => this.language.route('/'));
+}

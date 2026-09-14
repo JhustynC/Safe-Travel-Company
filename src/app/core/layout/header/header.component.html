@@ -1,8 +1,7 @@
 <header class="site-header" [class.scrolled]="scrolled()">
   <div class="header-inner container">
-    <a class="wordmark" routerLink="/">
-      <span class="wordmark__seal" aria-hidden="true">ST</span>
-      <span>SAFE TRAVEL <span class="wordmark__small">COMPANY</span></span>
+    <a class="brand-logo" [routerLink]="homeRoute()" [attr.aria-label]="labels().home">
+      <img src="/assets/images/brand/safe-travel-logo.webp" alt="" width="420" height="420" />
     </a>
     <button
       id="menu-toggle"
@@ -12,11 +11,15 @@
       aria-controls="primary-navigation"
       (click)="toggle()"
     >
-      <span>{{ menuOpen() ? 'Close' : 'Menu' }}</span
-      ><span class="hamburger" [class.open]="menuOpen()" aria-hidden="true"></span>
+      <span>{{ menuOpen() ? labels().close : labels().menu }}</span>
+      <span class="hamburger" [class.open]="menuOpen()" aria-hidden="true"></span>
     </button>
-    <nav id="primary-navigation" aria-label="Main navigation" [class.is-open]="menuOpen()">
-      @for (item of items; track item.route) {
+    <nav
+      id="primary-navigation"
+      [attr.aria-label]="labels().navigation"
+      [class.is-open]="menuOpen()"
+    >
+      @for (item of items(); track item.route) {
         <a
           [routerLink]="item.route"
           routerLinkActive="active"
@@ -27,8 +30,27 @@
         >
       }
     </nav>
-    <a class="button header-cta" routerLink="/contact"
-      >Contact Us <span aria-hidden="true">↗</span></a
-    >
+    <div class="header-actions">
+      <div class="language-switch" aria-label="Language">
+        <a
+          [routerLink]="englishRoute()"
+          [attr.aria-current]="language.current() === 'en' ? 'page' : null"
+          hreflang="en"
+          lang="en"
+          >EN</a
+        >
+        <span aria-hidden="true">/</span>
+        <a
+          [routerLink]="spanishRoute()"
+          [attr.aria-current]="language.current() === 'es' ? 'page' : null"
+          hreflang="es"
+          lang="es"
+          >ES</a
+        >
+      </div>
+      <a class="button header-cta" [routerLink]="contactRoute()"
+        >{{ labels().contact }} <span aria-hidden="true">↗</span></a
+      >
+    </div>
   </div>
 </header>

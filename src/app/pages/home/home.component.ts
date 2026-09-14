@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { PrimaryButtonComponent } from '../../shared/components/primary-button/primary-button.component';
 import { SectionHeadingComponent } from '../../shared/components/section-heading/section-heading.component';
 import { CategoryCardComponent } from '../../shared/components/category-card/category-card.component';
 import { QuoteBlockComponent } from '../../shared/components/quote-block/quote-block.component';
 import { ImageContentSectionComponent } from '../../shared/components/image-content-section/image-content-section.component';
-import { SITE } from '../../data/site-content';
-import { categories } from '../../data/products';
+import { localizedCategories } from '../../data/products';
+import { CONTENT } from '../../data/content';
+import { LanguageService } from '../../core/services/language.service';
+
 @Component({
   selector: 'app-home',
   imports: [
@@ -19,6 +21,10 @@ import { categories } from '../../data/products';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-  readonly site = SITE;
-  readonly categories = categories;
+  readonly language = inject(LanguageService);
+  readonly copy = computed(() => CONTENT[this.language.current()]);
+  readonly categories = computed(() => localizedCategories(this.language.current()));
+  route(path: string): string {
+    return this.language.route(path);
+  }
 }

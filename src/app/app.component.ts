@@ -6,12 +6,13 @@ import { HeaderComponent } from './core/layout/header/header.component';
 import { FooterComponent } from './core/layout/footer/footer.component';
 import { SeoService } from './core/services/seo.service';
 import { PageMetadata } from './data/site-content';
+import { LanguageService } from './core/services/language.service';
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, HeaderComponent, FooterComponent],
-  template: `<a class="skip-link" [href]="skipLink" (click)="skipToMain($event)"
-      >Skip to main content</a
-    >
+  template: `<a class="skip-link" [href]="skipLink" (click)="skipToMain($event)">{{
+      language.current() === 'es' ? 'Saltar al contenido principal' : 'Skip to main content'
+    }}</a>
     <app-header />
     <main id="main-content" tabindex="-1"><router-outlet /></main>
     <app-footer />`,
@@ -19,6 +20,7 @@ import { PageMetadata } from './data/site-content';
 export class App {
   private readonly router = inject(Router);
   private readonly document = inject(DOCUMENT);
+  readonly language = inject(LanguageService);
   get skipLink(): string {
     return this.router.url.split(/[?#]/)[0] + '#main-content';
   }
@@ -41,7 +43,10 @@ export class App {
         let route = root;
         while (route.firstChild) route = route.firstChild;
         const metadata = route.snapshot.data['seo'] as PageMetadata | undefined;
-        if (metadata) seo.update(metadata);
+        if (metadata) {
+          this.language.set(metadata.locale);
+          seo.update(metadata);
+        }
       });
   }
 }

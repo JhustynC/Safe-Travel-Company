@@ -5,5 +5,5 @@ export interface ContactConfig {
 // Public configuration only. Never put API secrets here.
 export const CONTACT_CONFIG = new InjectionToken<ContactConfig>('CONTACT_CONFIG', {
   providedIn: 'root',
-  factory: () => ({ endpoint: '' }),
+  factory: () => ({ endpoint: '/api/contact' }),
 });

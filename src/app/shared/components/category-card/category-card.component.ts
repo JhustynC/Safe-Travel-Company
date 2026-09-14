@@ -1,11 +1,12 @@
 import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Category } from '../../../data/products';
+import { LocalizedCategory } from '../../../data/products';
+
 @Component({
   selector: 'app-category-card',
   imports: [RouterLink],
-  template: `<a class="category" [routerLink]="category().route"
-    ><div class="category__image" [class.pouch]="category().title === 'Pouches'">
+  template: `<a class="category" [routerLink]="category().route">
+    <div class="category__image">
       <span class="category__number">{{ category().number }} /</span
       ><img
         [src]="category().image"
@@ -22,9 +23,9 @@ import { Category } from '../../../data/products';
     </div>
     <p>{{ category().description }}</p>
     <span class="category__link"
-      >Explore {{ category().title }} <span aria-hidden="true">→</span></span
-    ></a
-  >`,
+      >{{ exploreLabel() }} {{ category().title }} <span aria-hidden="true">→</span></span
+    >
+  </a>`,
   styles: `
     .category {
       display: block;
@@ -35,9 +36,6 @@ import { Category } from '../../../data/products';
       padding: 2rem;
       position: relative;
       overflow: hidden;
-    }
-    .category__image.pouch {
-      background: #e8e5dc;
     }
     img {
       height: 100%;
@@ -86,5 +84,6 @@ import { Category } from '../../../data/products';
   `,
 })
 export class CategoryCardComponent {
-  readonly category = input.required<Category>();
+  readonly category = input.required<LocalizedCategory>();
+  readonly exploreLabel = input.required<string>();
 }
