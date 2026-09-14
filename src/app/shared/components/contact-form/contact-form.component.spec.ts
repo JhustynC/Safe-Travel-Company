@@ -20,6 +20,7 @@ describe('ContactFormComponent', () => {
       lastName: '',
       email: 'test@example.com',
       message: 'I would like to ask about a custom vest.',
+      company: '',
     });
   }
   it('shows required, email and message errors without sending', () => {

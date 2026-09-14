@@ -1,9 +1,11 @@
-import { Component, DestroyRef, DOCUMENT, inject, signal } from '@angular/core';
+import { Component, computed, DestroyRef, DOCUMENT, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { finalize } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ContactService } from '../../../core/services/contact.service';
 import { SITE } from '../../../data/site-content';
+import { CONTENT } from '../../../data/content';
+import { LanguageService } from '../../../core/services/language.service';
 @Component({
   selector: 'app-contact-form',
   imports: [ReactiveFormsModule],
@@ -16,6 +18,8 @@ export class ContactFormComponent {
   private readonly destroyRef = inject(DestroyRef);
   private readonly document = inject(DOCUMENT);
   readonly site = SITE;
+  readonly language = inject(LanguageService);
+  readonly copy = computed(() => CONTENT[this.language.current()].form);
   readonly available = this.service.configured;
   readonly loading = signal(false);
   readonly status = signal<'idle' | 'success' | 'error' | 'unavailable'>('idle');
@@ -32,6 +36,7 @@ export class ContactFormComponent {
         Validators.maxLength(5000),
       ],
     ],
+    company: ['', Validators.maxLength(200)],
   });
   invalid(field: keyof typeof this.form.controls): boolean {
     const control = this.form.controls[field];

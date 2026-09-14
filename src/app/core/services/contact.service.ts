@@ -7,6 +7,7 @@ export interface ContactMessage {
   lastName: string;
   email: string;
   message: string;
+  company: string;
 }
 @Injectable({ providedIn: 'root' })
 export class ContactService {

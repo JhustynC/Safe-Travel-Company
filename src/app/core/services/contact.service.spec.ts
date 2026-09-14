@@ -8,6 +8,7 @@ const message: ContactMessage = {
   lastName: '',
   email: 'test@example.com',
   message: 'A test message for a custom vest.',
+  company: '',
 };
 describe('ContactService', () => {
   beforeEach(() =>
@@ -17,6 +18,7 @@ describe('ContactService', () => {
   );
   afterEach(() => TestBed.inject(HttpTestingController).verify());
   it('does not send or pretend success without an endpoint', () => {
+    TestBed.overrideProvider(CONTACT_CONFIG, { useValue: { endpoint: '' } });
     let error: Error | undefined;
     TestBed.inject(ContactService)
       .send(message)

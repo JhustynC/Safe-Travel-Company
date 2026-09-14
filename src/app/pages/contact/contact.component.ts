@@ -1,24 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { PageHeroComponent } from '../../shared/components/page-hero/page-hero.component';
 import { ContactFormComponent } from '../../shared/components/contact-form/contact-form.component';
 import { SITE } from '../../data/site-content';
+import { CONTENT } from '../../data/content';
+import { LanguageService } from '../../core/services/language.service';
+
 @Component({
   selector: 'app-contact',
   imports: [PageHeroComponent, ContactFormComponent],
-  template: `<app-page-hero
-      eyebrow="CONTACT"
-      title="Let's create something meaningful for your journey."
-      ><p>
-        If you are interested in a pouch, carving or vest, have a question, or simply want to say
-        hello, I would love to hear from you.
-      </p></app-page-hero
+  template: `<app-page-hero [eyebrow]="copy().eyebrow" [title]="copy().title"
+      ><p>{{ copy().intro }}</p></app-page-hero
     >
     <div class="contact-layout container">
       <div class="contact-details">
-        <span class="eyebrow">A CONVERSATION STARTS HERE</span>
-        <h2>Get in touch.</h2>
+        <span class="eyebrow">{{ copy().conversation }}</span>
+        <h2>{{ copy().getInTouch }}</h2>
         <dl>
-          <dt>Email</dt>
+          <dt>{{ copy().email }}</dt>
           <dd>
             <a class="text-link" [href]="'mailto:' + site.email">{{ site.email }}</a>
           </dd>
@@ -28,10 +26,10 @@ import { SITE } from '../../data/site-content';
               <a [href]="site.instagram" rel="noopener noreferrer" target="_blank">Instagram ↗</a>
             </dd>
           }
-          <dt>Based in</dt>
-          <dd>{{ site.location }}</dd>
+          <dt>{{ copy().based }}</dt>
+          <dd>{{ site.location[language.current()] }}</dd>
         </dl>
-        <p>Custom pieces available upon request.<br />Safe travels!</p>
+        <p>{{ copy().custom }}<br />{{ copy().closing }}</p>
       </div>
       <app-contact-form />
     </div>`,
@@ -70,5 +68,7 @@ import { SITE } from '../../data/site-content';
   `,
 })
 export class ContactComponent {
+  readonly language = inject(LanguageService);
   readonly site = SITE;
+  readonly copy = computed(() => CONTENT[this.language.current()].contact);
 }
