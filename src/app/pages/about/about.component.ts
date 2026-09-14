@@ -15,7 +15,7 @@ import { GalleryComponent, GalleryImage } from '../../shared/components/gallery/
       </div>
       <figure class="detail-hero__media photo">
         <img
-          src="/assets/images/about/founder.webp"
+          src="/assets/images/about/founder.webp?v=2"
           [alt]="copy().founderAlt"
           width="620"
           height="800"
