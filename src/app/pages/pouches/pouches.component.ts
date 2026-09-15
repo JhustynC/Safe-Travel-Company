@@ -16,7 +16,7 @@ import { PrimaryButtonComponent } from '../../shared/components/primary-button/p
       </div>
       <div class="detail-hero__media">
         <img
-          src="/assets/images/pouches/pouches-collection.webp"
+          src="/assets/images/pouches/pouches-collection.webp?v=2"
           [alt]="copy().heroAlt"
           width="900"
           height="361"
@@ -60,7 +60,7 @@ import { PrimaryButtonComponent } from '../../shared/components/primary-button/p
     <section class="editorial-section reverse container">
       <div class="editorial-media">
         <img
-          src="/assets/images/pouches/shinto-symbol.webp"
+          src="/assets/images/pouches/shinto-symbol.webp?v=2"
           [alt]="copy().shintoAlt"
           width="495"
           height="333"
@@ -76,7 +76,7 @@ import { PrimaryButtonComponent } from '../../shared/components/primary-button/p
     <section class="editorial-section container">
       <div class="editorial-media">
         <img
-          src="/assets/images/pouches/prayer-feathers.webp"
+          src="/assets/images/pouches/prayer-feathers.webp?v=2"
           [alt]="copy().feathersAlt"
           width="319"
           height="452"
